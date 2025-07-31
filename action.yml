@@ -1,0 +1,22 @@
+name: 'Cilective Test Selector'
+description: 'Analyzes a repo and a change and outputs the list of tests to run.'
+author: 'Cilective'
+inputs:
+  endpoint-url:
+    description: 'The URL of the Cilective analyze endpoint.'
+    required: true
+  cilective-api-key:
+    description: 'API key for authorizing the request (set as a secret).'
+    required: true
+  github-token:
+    description: 'Optional GitHub token for API access. Defaults to the GITHUB_TOKEN provided by Actions.'
+    required: false
+outputs:
+  selected-tests:
+    description: 'A JSON array of test names selected to run for the PR.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  color: 'purple'
+  icon: 'search'
